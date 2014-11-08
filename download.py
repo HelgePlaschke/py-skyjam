@@ -28,7 +28,7 @@ manager = Musicmanager()
 
 manager.login('oauth.cred')
 
-rows, columns = [int(v) for v in os.popen('stty size', 'r').read().split()]
+columns = int(subprocess.check_output(['stty', 'size']).split()[1])
 
 logging.info('starting download')
 count = 0
